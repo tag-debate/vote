@@ -1,0 +1,41 @@
+name: NodeJS com Grunt
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Usar Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Instalar dependências
+      run: npm ci
+
+    - name: Compilar o circuito Circom
+      run: npm run compilecircom
+
+    - name: Configurar Groth16
+      run: npm run setupgroth16
+
+    - name: Gerar zk-proof
+      run: npm run generate-proof
+
+    - name: Executar build com Grunt
+      run: grunt
+
+    - name: Executar os testes
+      run: npm test
