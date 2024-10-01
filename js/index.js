@@ -6,6 +6,11 @@ const { voterRegistry } = require('./utils/voterRegistry');
 function vote(candidateId, voterId, currentTime) {
   const votingDeadline = moment('2023-12-31'); // Definir o prazo de votação
 
+  // Ensure currentTime is a valid moment object
+  if (!moment.isMoment(currentTime)) {
+    throw new Error("O tempo atual fornecido não é válido.");
+  }
+
   if (currentTime.isAfter(votingDeadline)) {
     throw new Error("O período de votação terminou.");
   }
@@ -19,15 +24,5 @@ function vote(candidateId, voterId, currentTime) {
   voterRegistry[voterId] = true;
   
   // Registra o voto para o candidato
-  castVote(candidateId, voterId);
+  castVote(candidateId);
 }
-
-// Função administrativa para atualizar os detalhes do candidato
-function updateCandidateInfo(adminId, candidateId, newName, newPhotoUrl) {
-  const { updateCandidateInfo } = require('./adminFunctions');
-  
-  updateCandidateInfo(adminId, candidateId, newName, newPhotoUrl);
-}
-
-// Exporta as funções para uso externo
-module.exports = { vote, updateCandidateInfo };
