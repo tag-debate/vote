@@ -1,0 +1,92 @@
+{
+    "voting_scenarios": [
+      {
+        "scenario": "Presidential Election",
+        "candidates": [
+          {
+            "candidate_id": 1,
+            "name": "Candidate A",
+            "photo_url": "https://example.com/photoA.jpg",
+            "party": "Party A"
+          },
+          {
+            "candidate_id": 2,
+            "name": "Candidate B",
+            "photo_url": "https://example.com/photoB.jpg",
+            "party": "Party B"
+          }
+        ],
+        "voters": [
+          {
+            "voter_id": 101,
+            "voted": false,
+            "vote_time": null
+          },
+          {
+            "voter_id": 102,
+            "voted": false,
+            "vote_time": null
+          }
+        ],
+        "voting_deadline": "2023-12-31T23:59:59",
+        "total_votes": 0
+      },
+      {
+        "scenario": "Mayoral Election",
+        "candidates": [
+          {
+            "candidate_id": 3,
+            "name": "Candidate C",
+            "photo_url": "https://example.com/photoC.jpg",
+            "party": "Party C"
+          },
+          {
+            "candidate_id": 4,
+            "name": "Candidate D",
+            "photo_url": "https://example.com/photoD.jpg",
+            "party": "Party D"
+          }
+        ],
+        "voters": [
+          {
+            "voter_id": 201,
+            "voted": false,
+            "vote_time": null
+          },
+          {
+            "voter_id": 202,
+            "voted": false,
+            "vote_time": null
+          }
+        ],
+        "voting_deadline": "2024-05-15T23:59:59",
+        "total_votes": 0
+      }
+    ],
+    "campaign_financing": [
+      {
+        "candidate_id": 1,
+        "funds_raised": 500000,
+        "funds_spent": 300000,
+        "commission_rate": 0.05
+      },
+      {
+        "candidate_id": 2,
+        "funds_raised": 750000,
+        "funds_spent": 400000,
+        "commission_rate": 0.05
+      },
+      {
+        "candidate_id": 3,
+        "funds_raised": 200000,
+        "funds_spent": 150000,
+        "commission_rate": 0.05
+      },
+      {
+        "candidate_id": 4,
+        "funds_raised": 300000,
+        "funds_spent": 250000,
+        "commission_rate": 0.05
+      }
+    ]
+  }
